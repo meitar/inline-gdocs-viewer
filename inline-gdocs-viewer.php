@@ -45,6 +45,7 @@ class InlineGoogleSpreadsheetViewerPlugin {
         add_action('admin_print_footer_scripts', array($this, 'addQuickTagButton'));
 
         add_action('wp_enqueue_scripts', array($this, 'addFrontEndScripts'));
+        add_action('igsv_front_end_scripts', array($this, 'enqueueFrontEndScripts'));
 
         add_shortcode($this->shortcode, array($this, 'displayShortcode'));
         wp_embed_register_handler(
@@ -106,6 +107,10 @@ class InlineGoogleSpreadsheetViewerPlugin {
     }
 
     public function addFrontEndScripts () {
+        do_action('igsv_front_end_scripts');
+    }
+    
+    public function enqueueFrontEndScripts () {
         // Core DataTables.
         wp_enqueue_style(
             'jquery-datatables',
