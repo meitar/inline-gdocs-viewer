@@ -107,7 +107,7 @@ class InlineGoogleSpreadsheetViewerPlugin {
     }
 
     public function addFrontEndScripts () {
-        doAction('igsv_front_end_scripts');
+        do_action('igsv_front_end_scripts');
     }
     
     public function enqueueFrontEndScripts () {
